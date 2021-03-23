@@ -11,6 +11,7 @@
   	<junit5.version>5.7.1</junit5.version>
   	<maven.surefire.version>2.22.1</maven.surefire.version>
   	<selenium.version>3.141.59</selenium.version>
+  	<threads>4</threads>
   </properties>
    
    <dependencies>
@@ -59,7 +60,7 @@
 		    <version>${maven.surefire.version}</version>
 		    <configuration>
 		        <parallel>methods</parallel>
-		        <threadCount>4</threadCount>
+		        <threadCount>${threads}</threadCount>
 		        <reuserForks>false</reuserForks>
 		        <testFailureIgnore>true</testFailureIgnore>
 		        <includes>
