@@ -18,9 +18,13 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 // - 'strict=false' will skip undefined steps from execution
 //
 // specify tags to tell cucumber to only run scenarios with specific tags specified
-// - `tags={"@foo", "not @bar"}
+// - `tags="@foo and not @bar"
 @CucumberOptions(
-		plugin = {"pretty", "html:target/cucumber-report.html", "json:target/cucumber.json", "summary"},
+		plugin = {
+				"pretty",
+				"html:target/cucumber-report.html",
+				"json:target/cucumber.json", "summary"
+		},
 		snippets = SnippetType.CAMELCASE,
 		features = "classpath:features",
 		monochrome = true

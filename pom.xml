@@ -64,7 +64,8 @@
 		        <reuserForks>false</reuserForks>
 		        <testFailureIgnore>true</testFailureIgnore>
 		        <includes>
-		            <include>**/*RunCucumberTests.java</include>
+		            <include>**/GoogleTestRunner.java</include>
+		            <!-- <include>**/RunCucumberTests.java</include> -->
 		        </includes>
 		    </configuration>
 		</plugin>

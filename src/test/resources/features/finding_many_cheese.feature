@@ -16,7 +16,7 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-#@blueCheeseSearch
+@blueCheeseSearch
 Feature: Has blue cheese been searched for?
   I want to know if blue cheese has been searched
 
