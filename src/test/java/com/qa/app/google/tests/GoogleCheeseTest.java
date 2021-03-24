@@ -5,7 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.qa.app.ChromeHooks;
+import com.qa.app.Hooks;
 import com.qa.app.google.page.GooglePOM;
 
 import io.cucumber.java.en.Given;
@@ -16,8 +16,8 @@ public class GoogleCheeseTest {
 	
 	private final GooglePOM POM;
 
-	public GoogleCheeseTest(ChromeHooks hooks) {
-		this.POM = PageFactory.initElements(hooks.driver, GooglePOM.class);
+	public GoogleCheeseTest(Hooks hooks) {
+		this.POM = PageFactory.initElements(hooks.getDriver(), GooglePOM.class);
 	}
 
 	@Given("I am on the Google search page")

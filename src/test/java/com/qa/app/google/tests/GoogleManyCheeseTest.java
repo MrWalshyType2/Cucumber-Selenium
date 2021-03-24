@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.qa.app.ChromeHooks;
+import com.qa.app.Hooks;
 import com.qa.app.google.page.GooglePOM;
 
 import io.cucumber.java.en.Given;
@@ -20,8 +20,8 @@ public class GoogleManyCheeseTest {
 	private final String URL = "https://google.com";
 	private final GooglePOM POM;
 	
-	public GoogleManyCheeseTest(ChromeHooks hooks) {
-		this.POM = PageFactory.initElements(hooks.driver, GooglePOM.class);
+	public GoogleManyCheeseTest(Hooks hooks) {
+		this.POM = PageFactory.initElements(hooks.getDriver(), GooglePOM.class);
 	}
 	
 	@Given("I am on the google search page")

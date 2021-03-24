@@ -5,19 +5,17 @@ import static org.junit.Assert.assertEquals;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import com.qa.app.Book;
-import com.qa.app.ChromeHooks;
-import com.qa.app.amazon.AmazonPOM;
-import com.qa.app.amazon.AmazonSearchResultPage;
+import com.qa.app.Hooks;
+import com.qa.app.amazon.page.AmazonPOM;
+import com.qa.app.amazon.page.AmazonSearchResultPage;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
@@ -34,9 +32,9 @@ public class SearchForBooksTest {
 	private List<List<Book>> testableBooks;
 	private List<String> expectedTitles;
 	
-	public SearchForBooksTest(ChromeHooks hooks) {
+	public SearchForBooksTest(Hooks hooks) {
 		super();
-		this.webDriver = hooks.driver;
+		this.webDriver = hooks.getDriver();
 		this.POM = PageFactory.initElements(webDriver, AmazonPOM.class);
 		this.searchResultPage = POM.getAmazonSearchResultPage();
 		this.books = new ArrayList<List<Book>>();
@@ -55,6 +53,7 @@ public class SearchForBooksTest {
 	    for (String title : data.keySet()) {
 	    	POM.navigateToAmazonLandingPage();
 			POM.getAmazonLandingPage().searchFor(title);
+//			Thread.sleep(5000); // TODO: add explicit wait
 			
 			List<Book> booksOnPage = searchResultPage.getBooks();
 	    	books.add(booksOnPage);
@@ -115,7 +114,6 @@ public class SearchForBooksTest {
 		Path storagePath = Path.of("target/bookstore/books.csv");
 		
 		try (var reader = Files.newBufferedReader(storagePath)) {
-			int i = 0;
 			String line = reader.readLine();
 			
 			assertEquals("author,title,link", line);
