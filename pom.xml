@@ -11,7 +11,7 @@
   	<junit5.version>5.7.1</junit5.version>
   	<maven.surefire.version>2.22.1</maven.surefire.version>
   	<selenium.version>3.141.59</selenium.version>
-  	<threads>4</threads>
+  	<threads>8</threads>
   </properties>
    
    <dependencies>
@@ -64,8 +64,9 @@
 		        <reuserForks>false</reuserForks>
 		        <testFailureIgnore>true</testFailureIgnore>
 		        <includes>
-		            <include>**/GoogleTestRunner.java</include>
+		            <!-- <include>**/GoogleTestRunner.java</include> -->
 		            <!-- <include>**/RunCucumberTests.java</include> -->
+		            <include>**/AmazonTestRunner.java</include>
 		        </includes>
 		    </configuration>
 		</plugin>

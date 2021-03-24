@@ -20,7 +20,7 @@ public class BrowserConfig {
         
         Map<String, Object> prefs = new HashMap<String, Object>();
 		ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("headless");
+//        chromeOptions.addArguments("headless");
 
 		// Settings
 		prefs.put("profile.default_content_setting_values.cookies", 2);
